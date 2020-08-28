@@ -12,5 +12,5 @@ resource "spacelift_stack" "kaboom" {
   name           = "kaboom"
   branch         = "master"
   repository     = "demo"
-  # worker_pool_id = "01EGJJ0HNKQW51GSJY2F8Q077Z"
+  worker_pool_id = "01EGJJ0HNKQW51GSJY2F8Q077Z"
 }

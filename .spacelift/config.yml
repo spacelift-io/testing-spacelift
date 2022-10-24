@@ -2,7 +2,5 @@ version: "1"
 
 # Hello
 stack_defaults:
-  before_init:
-    - ps
   after_run:
-    - ps
+    - env | grep state

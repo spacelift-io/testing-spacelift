@@ -1,0 +1,5 @@
+version: "1"
+
+stack_defaults:
+  after_run:
+    - ps

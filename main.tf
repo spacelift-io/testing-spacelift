@@ -46,6 +46,11 @@ provider "google" {
   zone        = "us-central1-c"
 }
 
+resource "google_storage_bucket" "test" {
+  name          = "marcinw-oidc-test"
+  location      = "US"
+}
+
 data "aws_caller_identity" "current" {}
 
 output "account_id" {

@@ -2,6 +2,10 @@ variable "spacelift_token" {
   type = string
 }
 
+variable "spacelift_run_id" {
+  type = string
+}
+
 terraform {
   required_providers {
     aws = {
@@ -15,6 +19,7 @@ provider "aws" {
   
   assume_role_with_web_identity {
     role_arn = "arn:aws:iam::039653571618:role/marcinw-oidc-experiment"
+    session_name = var.spacelift_run_id
     web_identity_token = var.spacelift_token
   }
 }

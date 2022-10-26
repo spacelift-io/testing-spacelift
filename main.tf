@@ -12,8 +12,11 @@ terraform {
 
 provider "aws" {
   region = "eu-west-1"
-  role_arn = "arn:aws:iam::039653571618:role/marcinw-oidc-experiment"
-  web_identity_token = var.spacelift_token
+  
+  assume_role_with_web_identity {
+    role_arn = "arn:aws:iam::039653571618:role/marcinw-oidc-experiment"
+    web_identity_token = var.spacelift_token
+  }
 }
 
 data "aws_caller_identity" "current" {}

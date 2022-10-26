@@ -1,3 +1,11 @@
+variable "spacelift_account_name" {
+  type = string
+}
+
+variable "spacelift_stack_id" {
+  type = string
+}
+
 variable "spacelift_token" {
   type = string
 }
@@ -19,7 +27,11 @@ provider "aws" {
   
   assume_role_with_web_identity {
     role_arn = "arn:aws:iam::039653571618:role/marcinw-oidc-experiment"
-    session_name = var.spacelift_run_id
+    session_name = join("/", [
+      var.spacelift_account_name,
+      var.spacelift_stack_id,
+      var.spacelift_run_id,
+    ])
     web_identity_token = var.spacelift_token
   }
 }

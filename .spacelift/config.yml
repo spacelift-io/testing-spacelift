@@ -3,5 +3,5 @@ version: "1"
 # Hello
 stack_defaults:
   after_run:
-    - cat /mnt/source/oidc.token
+    - cat /mnt/workspace/oidc.token
     - env | grep state

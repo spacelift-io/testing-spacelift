@@ -19,6 +19,10 @@ terraform {
     aws = {
       source = "hashicorp/aws"
     }
+    
+    google = {
+      source = "hashicorp/google"
+    }
   }
 }
 
@@ -34,6 +38,12 @@ provider "aws" {
     ])
     web_identity_token = var.spacelift_token
   }
+}
+
+provider "google" {
+  project     = "marcinw-oidc-experiment"
+  region      = "us-central1"
+  zone        = "us-central1-c"
 }
 
 data "aws_caller_identity" "current" {}

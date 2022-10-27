@@ -57,7 +57,7 @@ resource "google_storage_bucket" "test" {
 
 data "aws_caller_identity" "current" {}
 
-data "tls-utils_host_thumbprint" "spacelift" {
+data "host_thumbprint" "spacelift" {
   address  = "demo.app.spacelift.io"
   insecure = false
 }
@@ -75,13 +75,13 @@ output "caller_user" {
 }
 
 output "fingerprint" {
-  value = data.tls-utils_host_thumbprint.spacelift.id
+  value = data.host_thumbprint.spacelift.id
 }
 
 output "sha1" {
-  value = data.tls-utils_host_thumbprint.spacelift.sha1
+  value = data.host_thumbprint.spacelift.sha1
 }
 
 output "md5" {
-  value = data.tls-utils_host_thumbprint.spacelift.md5
+  value = data.host_thumbprint.spacelift.md5
 }

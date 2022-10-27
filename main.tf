@@ -44,8 +44,6 @@ provider "google" {
   zone    = "us-central1-c"
 }
 
-provider "tls-utils" {}
-
 resource "google_storage_bucket" "test" {
   name     = "marcinw-oidc-test"
   location = "US"

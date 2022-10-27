@@ -75,13 +75,13 @@ output "caller_user" {
 }
 
 output "fingerprint" {
-  value = data.tls-utils-host_thumbprint.spacelift.id
+  value = data.tls-utils_host_thumbprint.spacelift.id
 }
 
 output "sha1" {
-  value = data.tls-utils-host_thumbprint.spacelift.sha1
+  value = data.tls-utils_host_thumbprint.spacelift.sha1
 }
 
 output "md5" {
-  value = data.tls-utils-host_thumbprint.spacelift.md5
+  value = data.tls-utils_host_thumbprint.spacelift.md5
 }

@@ -19,10 +19,6 @@ terraform {
     google = {
       source = "hashicorp/google"
     }
-
-    tls-utils = {
-      source = "ekristen/tls-utils"
-    }
   }
 }
 
@@ -57,11 +53,6 @@ resource "google_storage_bucket" "test" {
 
 data "aws_caller_identity" "current" {}
 
-data "host_thumbprint" "spacelift" {
-  address  = "demo.app.spacelift.io"
-  insecure = false
-}
-
 output "account_id" {
   value = data.aws_caller_identity.current.account_id
 }
@@ -72,16 +63,4 @@ output "caller_arn" {
 
 output "caller_user" {
   value = data.aws_caller_identity.current.user_id
-}
-
-output "fingerprint" {
-  value = data.host_thumbprint.spacelift.id
-}
-
-output "sha1" {
-  value = data.host_thumbprint.spacelift.sha1
-}
-
-output "md5" {
-  value = data.host_thumbprint.spacelift.md5
 }

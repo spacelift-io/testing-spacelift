@@ -57,7 +57,7 @@ resource "google_storage_bucket" "test" {
 
 data "aws_caller_identity" "current" {}
 
-data "tls-utils-host_thumbprint" "spacelift" {
+data "tls-utils_host_thumbprint" "spacelift" {
   address  = "demo.app.spacelift.io"
   insecure = false
 }

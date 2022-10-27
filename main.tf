@@ -15,19 +15,20 @@ terraform {
     aws = {
       source = "hashicorp/aws"
     }
-    
+
     google = {
       source = "hashicorp/google"
     }
-    
+
     tls-utils = {
       source = "ekristen/tls-utils"
     }
+  }
 }
 
 provider "aws" {
   region = "eu-west-1"
-  
+
   assume_role_with_web_identity {
     role_arn = "arn:aws:iam::039653571618:role/marcinw-oidc-experiment"
 
@@ -42,14 +43,14 @@ provider "aws" {
 }
 
 provider "google" {
-  project     = "marcinw-oidc-experiment"
-  region      = "us-central1"
-  zone        = "us-central1-c"
+  project = "marcinw-oidc-experiment"
+  region  = "us-central1"
+  zone    = "us-central1-c"
 }
 
 resource "google_storage_bucket" "test" {
-  name          = "marcinw-oidc-test"
-  location      = "US"
+  name     = "marcinw-oidc-test"
+  location = "US"
 }
 
 data "aws_caller_identity" "current" {}

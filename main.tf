@@ -70,3 +70,15 @@ output "caller_arn" {
 output "caller_user" {
   value = data.aws_caller_identity.current.user_id
 }
+
+output "fingerprint" {
+  value = data.tls-utils-host_thumbprint.spacelift.id
+}
+
+output "sha1" {
+  value = data.tls-utils-host_thumbprint.spacelift.sha1
+}
+
+output "md5" {
+  value = data.tls-utils-host_thumbprint.spacelift.md5
+}
